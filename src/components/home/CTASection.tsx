@@ -1,11 +1,11 @@
-import { Link } from '@/i18n/routing';
+import { Link } from '@/i18n/link';
 import { useTranslations } from 'next-intl';
 
 export default function CTASection() {
   const t = useTranslations('CTA');
 
   return (
-    <section className="bg-[#0F1115] py-20">
+    <section className="cv-auto bg-[#0F1115] py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
         <h2 className="text-3xl font-extrabold tracking-tight text-white sm:text-4xl font-[family-name:var(--font-heading)]">
           {t('title')}

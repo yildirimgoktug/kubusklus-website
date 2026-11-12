@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { Link } from '@/i18n/routing';
+import { Link } from '@/i18n/link';
 import { useTranslations } from 'next-intl';
 
 const projects = [
@@ -21,7 +21,7 @@ export default function PortfolioPreview() {
   const t = useTranslations('Portfolio');
 
   return (
-    <section className="bg-white py-20">
+    <section className="cv-auto bg-white py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Section header */}
         <div className="text-center">

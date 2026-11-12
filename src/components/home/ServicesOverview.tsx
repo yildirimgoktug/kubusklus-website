@@ -1,4 +1,4 @@
-import { Link } from '@/i18n/routing';
+import { Link } from '@/i18n/link';
 import { useTranslations } from 'next-intl';
 
 export default function ServicesOverview() {
@@ -36,7 +36,7 @@ export default function ServicesOverview() {
   ];
 
   return (
-    <section className="bg-gray-50 py-20">
+    <section className="cv-auto bg-gray-50 py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Section header */}
         <div className="text-center">

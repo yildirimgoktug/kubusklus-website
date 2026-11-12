@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
-import { getTranslations } from 'next-intl/server';
+import { NextIntlClientProvider } from 'next-intl';
+import { getMessages, getTranslations } from 'next-intl/server';
 import { buildPageMetadata } from '@/lib/pageMetadata';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
@@ -8,6 +9,11 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   return { title: t('title'), description: t('description'), ...buildPageMetadata(locale, '/offerte') };
 }
 
-export default function OfferteLayout({ children }: { children: React.ReactNode }) {
-  return children;
+export default async function OfferteLayout({ children }: { children: React.ReactNode }) {
+  const messages = await getMessages();
+  return (
+    <NextIntlClientProvider messages={{ OffertePage: messages.OffertePage }}>
+      {children}
+    </NextIntlClientProvider>
+  );
 }

@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { Link } from '@/i18n/routing';
+import { Link } from '@/i18n/link';
 import { useTranslations } from 'next-intl';
 
 export default function Hero() {
@@ -14,6 +14,7 @@ export default function Hero() {
         fill
         preload
         fetchPriority="high"
+        quality={50}
         sizes="100vw"
         className="object-cover object-[85%_center] sm:object-[center_80%]"
       />
@@ -57,7 +58,7 @@ export default function Hero() {
       </div>
 
       {/* Stats bar at bottom — solid dark bg */}
-      <div className="absolute bottom-0 left-0 right-0 py-5" style={{ background: 'rgba(0, 0, 0, 0.5)', backdropFilter: 'blur(16px)', WebkitBackdropFilter: 'blur(16px)' }}>
+      <div className="absolute bottom-0 left-0 right-0 py-5" style={{ background: 'rgba(0, 0, 0, 0.65)' }}>
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 gap-6 sm:grid-cols-4">
             <div className="text-center">

@@ -6,7 +6,7 @@ const withNextIntl = createNextIntlPlugin('./src/i18n/request.ts');
 const nextConfig: NextConfig = {
   images: {
     formats: ['image/avif', 'image/webp'],
-    qualities: [75],
+    qualities: [50, 75],
     // Project photos never change in place; cache optimized variants for a year.
     minimumCacheTTL: 31536000,
   },

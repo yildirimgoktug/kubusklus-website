@@ -33,3 +33,9 @@ body {
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading), Arial, Helvetica, sans-serif;
 }
+
+/* Skip layout/paint of below-the-fold sections until they approach the viewport. */
+.cv-auto {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 900px;
+}

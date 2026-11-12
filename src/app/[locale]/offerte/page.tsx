@@ -3,7 +3,7 @@
 import { Suspense, useState, useRef } from 'react';
 import { useTranslations, useLocale } from 'next-intl';
 import { useSearchParams } from 'next/navigation';
-import { Link } from '@/i18n/routing';
+import { Link } from '@/i18n/navigation';
 
 type FormStatus = 'idle' | 'sending' | 'success' | 'error';
 

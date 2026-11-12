@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { useTranslations } from 'next-intl';
 import HowWeWork from '@/components/home/HowWeWork';
-import { Link } from '@/i18n/routing';
+import { Link } from '@/i18n/link';
 import { buildPageMetadata } from '@/lib/pageMetadata';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {

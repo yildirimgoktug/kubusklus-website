@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
 import { Plus_Jakarta_Sans, DM_Sans } from 'next/font/google';
-import { NextIntlClientProvider } from 'next-intl';
-import { getMessages, getTranslations, setRequestLocale } from 'next-intl/server';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { routing } from '@/i18n/routing';
 import EmergencyBar from '@/components/layout/EmergencyBar';
 import Navbar from '@/components/layout/Navbar';
@@ -65,14 +64,6 @@ export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
 }
 
-// Only these namespaces are used by client components; server components read
-// messages directly, so shipping the rest to the browser just bloats the page.
-const CLIENT_NAMESPACES = ['Common', 'Navbar', 'FAQ', 'OffertePage', 'ProjectenPage'];
-
-function pick(messages: Record<string, unknown>, keys: string[]) {
-  return Object.fromEntries(keys.filter((k) => k in messages).map((k) => [k, messages[k]]));
-}
-
 type Props = {
   children: React.ReactNode;
   params: Promise<{ locale: string }>;
@@ -81,8 +72,6 @@ type Props = {
 export default async function LocaleLayout({ children, params }: Props) {
   const { locale } = await params;
   setRequestLocale(locale);
-
-  const messages = await getMessages();
 
   return (
     <html lang={locale} translate="no" className={`${plusJakarta.variable} ${dmSans.variable} h-full antialiased`}>
@@ -138,14 +127,15 @@ export default async function LocaleLayout({ children, params }: Props) {
         />
       </head>
       <body className="min-h-full flex flex-col">
-        <NextIntlClientProvider messages={pick(messages, CLIENT_NAMESPACES)}>
+        {/* No global NextIntlClientProvider: everything here is translated on the
+            server. Client pages that need messages (offerte, projecten) get a
+            provider in their own layout. */}
           <TranslationGuard />
           <EmergencyBar />
           <Navbar />
           <main className="flex-1">{children}</main>
           <Footer />
           <WhatsAppButton />
-        </NextIntlClientProvider>
       </body>
     </html>
   );
