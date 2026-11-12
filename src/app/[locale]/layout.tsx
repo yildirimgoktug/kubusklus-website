@@ -28,7 +28,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const tSite = await getTranslations({ locale, namespace: 'Metadata' });
 
   return {
-    metadataBase: new URL('https://kubusklus.nl'),
+    metadataBase: new URL('https://www.kubusklus.nl'),
     title: {
       default: t('title'),
       template: `%s | ${tSite('siteName')}`,
@@ -38,7 +38,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     openGraph: {
       title: t('title'),
       description: t('ogDescription'),
-      url: `https://kubusklus.nl/${locale}`,
+      url: `https://www.kubusklus.nl/${locale}`,
       siteName: tSite('siteName'),
       images: [{
         url: '/images/projects/hero-renovatie.webp',
@@ -50,11 +50,11 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
       type: 'website',
     },
     alternates: {
-      canonical: `/${locale}`,
+      canonical: `https://www.kubusklus.nl/${locale}`,
       languages: {
-        nl: '/nl',
-        en: '/en',
-        'x-default': '/nl',
+        nl: 'https://www.kubusklus.nl/nl',
+        en: 'https://www.kubusklus.nl/en',
+        'x-default': 'https://www.kubusklus.nl/nl',
       },
     },
     robots: { index: true, follow: true },
@@ -63,6 +63,14 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
+}
+
+// Only these namespaces are used by client components; server components read
+// messages directly, so shipping the rest to the browser just bloats the page.
+const CLIENT_NAMESPACES = ['Common', 'Navbar', 'FAQ', 'OffertePage', 'ProjectenPage'];
+
+function pick(messages: Record<string, unknown>, keys: string[]) {
+  return Object.fromEntries(keys.filter((k) => k in messages).map((k) => [k, messages[k]]));
 }
 
 type Props = {
@@ -89,7 +97,7 @@ export default async function LocaleLayout({ children, params }: Props) {
               name: 'Kubus Klussenbedrijf',
               alternateName: 'Kubusklus',
               description: 'Vakkundig stukadoor, tegelwerk en schilderwerk in Amsterdam. Sinds 2006.',
-              url: 'https://kubusklus.nl',
+              url: 'https://www.kubusklus.nl',
               telephone: '+31644331191',
               email: 'info@kubusklus.nl',
               foundingDate: '2006',
@@ -124,13 +132,13 @@ export default async function LocaleLayout({ children, params }: Props) {
                 { '@type': 'City', name: 'Amsterdam' },
                 { '@type': 'Place', name: 'Randstad' },
               ],
-              sameAs: ['https://kubusklus.nl'],
+              sameAs: ['https://www.kubusklus.nl'],
             }),
           }}
         />
       </head>
       <body className="min-h-full flex flex-col">
-        <NextIntlClientProvider messages={messages}>
+        <NextIntlClientProvider messages={pick(messages, CLIENT_NAMESPACES)}>
           <TranslationGuard />
           <EmergencyBar />
           <Navbar />

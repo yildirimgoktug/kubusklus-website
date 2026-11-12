@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { useTranslations } from 'next-intl';
+import Image from 'next/image';
 import { Link } from '@/i18n/routing';
 import { buildPageMetadata } from '@/lib/pageMetadata';
 
@@ -100,13 +101,16 @@ function ServiceContent() {
               </div>
               {/* Image */}
               <div className={idx % 2 === 1 ? 'lg:order-1' : ''}>
-                <div
-                  className="aspect-[4/3] rounded-2xl bg-cover"
-                  style={{
-                    backgroundImage: `url(${service.image})`,
-                    backgroundPosition: service.imagePosition ?? 'center',
-                  }}
-                />
+                <div className="relative aspect-[4/3] overflow-hidden rounded-2xl">
+                  <Image
+                    src={service.image}
+                    alt=""
+                    fill
+                    sizes="(min-width: 1024px) 600px, 100vw"
+                    className="object-cover"
+                    style={{ objectPosition: service.imagePosition ?? 'center' }}
+                  />
+                </div>
               </div>
             </div>
           </div>

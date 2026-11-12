@@ -1,0 +1,32 @@
+# Kubusklus
+
+> Kubus Klussenbedrijf (Kubusklus) is a renovation and finishing company in Amsterdam, active since 2006. Services include facades, roughcast, plastering, decorative plaster, sanding, painting, tiling, parquet and partition walls in Amsterdam and the Randstad. Contact: info@kubusklus.nl, +31 6 44 33 11 91. Address: Overschiestraat 170-A28, 1062 XK Amsterdam.
+
+The site is bilingual: Dutch (/nl, default) and English (/en). Quotes are requested through the online form on the quote page.
+
+## Pages (Dutch)
+
+- [Home](https://www.kubusklus.nl/nl): Overview of the company, services, projects and FAQ
+- [Diensten](https://www.kubusklus.nl/nl/diensten): All services with descriptions
+- [Projecten](https://www.kubusklus.nl/nl/projecten): Photo portfolio of recent projects
+- [Werkwijze](https://www.kubusklus.nl/nl/werkwijze): How a job runs, from first contact to delivery
+- [Over ons](https://www.kubusklus.nl/nl/over-ons): About the company
+- [FAQ](https://www.kubusklus.nl/nl/faq): Frequently asked questions
+- [Contact](https://www.kubusklus.nl/nl/contact): Address, phone, e-mail and map
+- [Offerte](https://www.kubusklus.nl/nl/offerte): Free quote request form
+
+## Pages (English)
+
+- [Home](https://www.kubusklus.nl/en): Company overview in English
+- [Services](https://www.kubusklus.nl/en/diensten): All services
+- [Projects](https://www.kubusklus.nl/en/projecten): Project portfolio
+- [How we work](https://www.kubusklus.nl/en/werkwijze): Working process
+- [About](https://www.kubusklus.nl/en/over-ons): About the company
+- [FAQ](https://www.kubusklus.nl/en/faq): Frequently asked questions
+- [Contact](https://www.kubusklus.nl/en/contact): Contact details
+- [Quote](https://www.kubusklus.nl/en/offerte): Free quote request form
+
+## Optional
+
+- [Privacy](https://www.kubusklus.nl/nl/privacy): Privacy statement
+- [Sitemap](https://www.kubusklus.nl/sitemap.xml): XML sitemap

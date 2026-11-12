@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 
-const BASE_URL = 'https://kubusklus.nl';
+const BASE_URL = 'https://www.kubusklus.nl';
 
 export function buildPageMetadata(locale: string, route: string): Pick<Metadata, 'alternates'> {
   const path = route === '' ? '' : route;

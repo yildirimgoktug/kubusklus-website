@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { useTranslations } from 'next-intl';
+import Image from 'next/image';
 import { Link } from '@/i18n/routing';
 import { buildPageMetadata } from '@/lib/pageMetadata';
 
@@ -67,12 +68,15 @@ function AboutContent() {
                 </div>
               </div>
             </div>
-            <div
-              className="aspect-[4/3] rounded-2xl bg-cover bg-center"
-              style={{
-                backgroundImage: 'url(/images/projects/over-ons-team.webp)',
-              }}
-            />
+            <div className="relative aspect-[4/3] overflow-hidden rounded-2xl">
+              <Image
+                src="/images/projects/over-ons-team.webp"
+                alt=""
+                fill
+                sizes="(min-width: 1024px) 600px, 100vw"
+                className="object-cover object-center"
+              />
+            </div>
           </div>
         </div>
       </section>

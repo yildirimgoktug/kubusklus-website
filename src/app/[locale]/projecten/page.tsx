@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 
 const allProjects = [
@@ -70,9 +71,12 @@ export default function ProjectenPage() {
                 onClick={() => setLightbox({ image: project.image, alt: t(`projects.${project.titleKey}`) })}
                 className="group relative overflow-hidden rounded-2xl aspect-[4/3] text-left cursor-pointer"
               >
-                <div
-                  className="absolute inset-0 bg-cover bg-center transition-transform duration-300 group-hover:scale-105"
-                  style={{ backgroundImage: `url(${project.image})` }}
+                <Image
+                  src={project.image}
+                  alt=""
+                  fill
+                  sizes="(min-width: 1024px) 400px, (min-width: 640px) 50vw, 100vw"
+                  className="object-cover object-center transition-transform duration-300 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
                 <div className="relative z-10 flex h-full flex-col justify-end p-6">

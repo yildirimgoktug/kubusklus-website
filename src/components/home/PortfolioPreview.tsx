@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { Link } from '@/i18n/routing';
 import { useTranslations } from 'next-intl';
 
@@ -44,9 +45,12 @@ export default function PortfolioPreview() {
               className="group relative overflow-hidden rounded-2xl aspect-[4/3] block"
             >
               {/* Image */}
-              <div
-                className="absolute inset-0 bg-cover bg-center transition-transform duration-300 group-hover:scale-105"
-                style={{ backgroundImage: `url(${project.image})` }}
+              <Image
+                src={project.image}
+                alt=""
+                fill
+                sizes="(min-width: 1024px) 400px, (min-width: 640px) 50vw, 100vw"
+                className="object-cover object-center transition-transform duration-300 group-hover:scale-105"
               />
               {/* Dark overlay gradient */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />

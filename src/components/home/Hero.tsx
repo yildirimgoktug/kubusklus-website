@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { Link } from '@/i18n/routing';
 import { useTranslations } from 'next-intl';
 
@@ -7,11 +8,14 @@ export default function Hero() {
   return (
     <section className="relative min-h-[90vh] flex items-center">
       {/* Background image */}
-      <div
-        className="absolute inset-0 bg-cover bg-no-repeat bg-position-[85%_center] sm:bg-position-[center_80%]"
-        style={{
-          backgroundImage: 'url(/images/projects/hero-renovatie.webp)',
-        }}
+      <Image
+        src="/images/projects/hero-renovatie.webp"
+        alt=""
+        fill
+        preload
+        fetchPriority="high"
+        sizes="100vw"
+        className="object-cover object-[85%_center] sm:object-[center_80%]"
       />
       {/* Dark gradient overlay — left-to-right, 0.92 to 0.5 opacity */}
       <div className="absolute inset-0 bg-gradient-to-r from-[#0F1115]/[0.95] via-[#0F1115]/80 via-55% to-[#0F1115]/20" />

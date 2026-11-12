@@ -1,6 +1,6 @@
 import type { MetadataRoute } from 'next';
 
-const BASE_URL = 'https://kubusklus.nl';
+const BASE_URL = 'https://www.kubusklus.nl';
 const BUILD_TIME = new Date('2026-04-24');
 
 const ROUTES = ['', '/diensten', '/projecten', '/over-ons', '/werkwijze', '/contact', '/faq', '/offerte', '/privacy'];
